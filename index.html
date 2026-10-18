@@ -121,6 +121,19 @@ h1 {
   font: inherit;
   cursor: pointer;
 }
+.art-grid {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.art-image {
+  max-width: 100%;
+  width: 500px;
+  height: auto;
+  border: 4px solid #b89b67;
+  box-shadow: 0 0 12px #000;
+}
 </style>
 </head>
 <body>
@@ -156,7 +169,7 @@ h1 {
 <script>
 const pages = {
   start: ["冒険のはじまり", "古い書庫の扉が開いた。<br>ここには、まだ誰も知らない作品が眠っている……"],
-  gallery: ["作品ギャラリー", "ここにイラストを並べていく予定！<br>作品を選ぶと大きく表示できるようにするよ。"],
+  gallery: ["作品ギャラリー", '<div class="art-grid"><img src="art01.jpg" alt="ちぃぽおめでとう" class="art-image"></div>'],
   profile: ["プロフィール", "ここに自己紹介や活動実績を掲載するよ。"],
   request: ["依頼について", "料金表や依頼条件をここに掲載する予定だよ。"],
   contact: ["お問い合わせ", "連絡先や依頼フォームをここに用意するよ。"]
