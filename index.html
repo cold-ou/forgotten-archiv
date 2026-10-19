@@ -217,22 +217,35 @@ h1 {
 const pages = {
   start: ["冒険のはじまり", "古い書庫の扉が開いた。<br>ここには、まだ誰も知らない作品が眠っている……"],
   
+  
   gallery: ["作品ギャラリー", `
-  <div class="art-gallery" id="artGallery">
-    <div class="art-slide active">
-      <img src="./images/art01.jpg" alt="ちぃぽおめでとう" class="art-image">
+    <div class="art-gallery" id="artGallery">
+      <div class="art-slide active">
+        <img src="./images/art01.jpg" alt="ちぃぽおめでとう" class="art-image">
+      </div>
+
+      <div class="art-slide">
+        <img src="./images/art02.jpg" alt="たけむ" class="art-image">
+      </div>
+
+      <div style="display:flex; justify-content:center; align-items:center; gap:12px; margin:20px auto; position:relative; z-index:10;">
+        <button type="button" onclick="changeArt(-1)"
+          style="display:inline-block; background:#101a2b; color:#ffe39a; border:2px solid #b99a61; padding:12px; font:inherit; cursor:pointer;">
+          ◀ 前へ
+        </button>
+
+        <span id="galleryCount">1 / 2</span>
+
+        <button type="button" onclick="changeArt(1)"
+          style="display:inline-block; background:#101a2b; color:#ffe39a; border:2px solid #b99a61; padding:12px; font:inherit; cursor:pointer;">
+          次へ ▶
+        </button>
+      </div>
+
+      <p class="hint">画像を左右にスワイプして切り替え</p>
     </div>
-    <div class="art-slide">
-      <img src="./images/art02.jpg" alt="たけむ" class="art-image">
-    </div>
-    <div class="gallery-controls">
-      <button onclick="changeArt(-1)">◀ 前へ</button>
-      <span id="galleryCount">1 / 2</span>
-      <button onclick="changeArt(1)">次へ ▶</button>
-    </div>
-    <p class="hint">画像を左右にスワイプして切り替え</p>
-  </div>
-`],
+  `],
+
 
   profile: ["プロフィール", "ここに自己紹介や活動実績を掲載するよ。"],
   request: ["依頼について", "料金表や依頼条件をここに掲載する予定だよ。"],
