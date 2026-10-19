@@ -243,6 +243,12 @@ function showPage(id) {
   document.getElementById("content").style.display = "flex";
   document.getElementById("pageTitle").textContent = pages[id][0];
   document.getElementById("pageText").innerHTML = pages[id][1];
+
+  if (id === "gallery") {
+    currentArt = 0;
+    updateArt();
+  }
+}
 }
 function goHome() {
   document.getElementById("content").style.display = "none";
@@ -251,18 +257,28 @@ function goHome() {
 
 let currentArt = 0;
 
-function changeArt(direction) {
+function updateArt() {
   const slides = document.querySelectorAll(".art-slide");
   if (!slides.length) return;
 
-  currentArt = (currentArt + direction + slides.length) % slides.length;
+  currentArt = (currentArt + slides.length) % slides.length;
 
   slides.forEach((slide, index) => {
     slide.classList.toggle("active", index === currentArt);
   });
 
-  document.getElementById("galleryCount").textContent =
-    `${currentArt + 1} / ${slides.length}`;
+  const count = document.getElementById("galleryCount");
+  if (count) {
+    count.textContent = `${currentArt + 1} / ${slides.length}`;
+  }
+}
+
+function changeArt(direction) {
+  const slides = document.querySelectorAll(".art-slide");
+  if (!slides.length) return;
+
+  currentArt += direction;
+  updateArt();
 }
 
 const artGallery = document.getElementById("content");
